@@ -50,13 +50,23 @@ const Navbar = () => {
 
         <div>
           {user && user?.email ? (
+            <div className="space-x-2">
+
+            <Link
+            to="/dashboard"
+            className="py-2 px-4 link-hover bg-green-200 rounded-3xl  font-bold hover:border-2"
+            >
+            Dashboard
+          </Link>
+
             <Link
               to="/"
               onClick={logOut}
               className="py-2 px-4 link-hover bg-green-200 rounded-3xl text-red-500 font-bold hover:border-2"
-            >
+              >
               LogOut
             </Link>
+              </div>
           ) : (
             <Link
               to="/login"
