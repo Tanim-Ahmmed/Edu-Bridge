@@ -5,10 +5,11 @@ import { FcGoogle } from "react-icons/fc";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import useAuth from "../../hooks/useAuth";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
 
 
 const Login = () => {
-
+    const axiosPublic = useAxiosPublic();
     const { handleGoogleLogin, userLogin, setUser } = useAuth();
     const [showPass, setShowPass] = useState(false);
     const [err, setErr] = useState("");
@@ -47,13 +48,23 @@ const Login = () => {
       .then((res) =>{
         const user = res.user;
         setUser(user);
-        navigate(from)
+        const userInfo = {
+          name: res.user?.displayName,
+          email: res.user?.email,
+          photo: res.user?.photoURL,
+          role: "Student",
+        }
 
-        toast.success("Welcome ! SignIn with Google successfull ", {
-          position: "top-center",
-          autoClose: 3000,
-        });
-
+        axiosPublic.post('/users', userInfo)
+        .then(res => {
+          console.log(res.data);
+          navigate(from)
+          toast.success("Welcome ! SignIn with Google successfull ", {
+            position: "top-center",
+            autoClose: 3000,
+          });  
+        })
+     
       })
       .catch(error => {
         setErr(error.code)

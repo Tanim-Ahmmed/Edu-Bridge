@@ -87,12 +87,21 @@ const Register = () => {
     handleGoogleLogin().then((res) => {
       const user = res.user;
       setUser(user);
-      navigate("/");
-
-      toast.success("Welcome ! SignIn with Google successfull ", {
-        position: "top-center",
-        autoClose: 3000,
-      });
+      const userInfo = {
+        name: res.user?.displayName,
+        email: res.user?.email,
+        photo: res.user?.photoURL,
+        role: "Student",
+      }
+      axiosPublic.post('/users', userInfo)
+      .then(res => {
+        console.log(res.data);
+        navigate("/");
+        toast.success("Welcome ! SignIn with Google successfull ", {
+          position: "top-center",
+          autoClose: 3000,
+        });
+      })
     });
   };
 

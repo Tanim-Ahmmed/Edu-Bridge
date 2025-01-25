@@ -14,7 +14,13 @@ import BookedSession from "../Pages/dashboard/student/bookedSession/BookedSessio
 import CreateNote from "../Pages/dashboard/student/CreateNote/CreateNote";
 import ManageNotes from "../Pages/dashboard/student/manageNotes/ManageNotes";
 import ViewAllMaterials from "../Pages/dashboard/student/ViewAllMaterials/ViewAllMaterials";
-
+import AllUsers from "../Pages/dashboard/Admin/AllUsers/AllUsers";
+import AllMaterials from "../Pages/dashboard/Admin/AllMaterials/AllMaterials";
+import AllSessions from "../Pages/dashboard/Admin/AllSessions/AllSessions";
+import CreateSession from "../Pages/dashboard/tutor/CreateSession/CreateSession";
+import CreatedSessions from "../Pages/dashboard/tutor/CreatedSessions/CreatedSessions";
+import AllUploadedMaterials from "../Pages/dashboard/tutor/UploadedMaterials/AllUploadedMaterials";
+import UploadMaterials from "../Pages/dashboard/tutor/uploadMaterials/UploadMaterials";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -47,6 +53,7 @@ export const router = createBrowserRouter([
         path:'',
         element:<DashHome></DashHome>,
       },
+      //student routes
       {
         path:"booked-session",
         element:<BookedSession></BookedSession>,
@@ -62,6 +69,46 @@ export const router = createBrowserRouter([
       {
         path:"all-study-materials",
         element:<ViewAllMaterials></ViewAllMaterials>,
+      },
+      
+      //tutor routes
+
+      {
+        path:"create-session",
+        element:<CreateSession></CreateSession>,
+      },
+
+      {
+        path:"created-sessions",
+        element:<CreatedSessions></CreatedSessions>,
+      },
+       
+      {
+        path:"upload-materials",
+        element:<UploadMaterials></UploadMaterials>,
+      },
+
+      {
+        path:"all-uploaded-materials",
+        element:<AllUploadedMaterials></AllUploadedMaterials>,
+      },
+
+
+
+      //admin routes
+      {
+        path:"all-users",
+        element: <AllUsers></AllUsers>,
+      },
+
+      {
+        path:"all-sessions",
+        element:<AllSessions></AllSessions> ,
+      },
+
+      {
+        path:"all-materials",
+        element: <AllMaterials></AllMaterials>,
       },
 
     ]
