@@ -21,6 +21,8 @@ import CreateSession from "../Pages/dashboard/tutor/CreateSession/CreateSession"
 import CreatedSessions from "../Pages/dashboard/tutor/CreatedSessions/CreatedSessions";
 import AllUploadedMaterials from "../Pages/dashboard/tutor/UploadedMaterials/AllUploadedMaterials";
 import UploadMaterials from "../Pages/dashboard/tutor/uploadMaterials/UploadMaterials";
+import AdminRoute from "./AdminRoute";
+import TutorRoute from "./TutorRoute";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -47,50 +49,50 @@ export const router = createBrowserRouter([
   },
   {
     path: "dashboard",
-    element: <Dashboard></Dashboard>,
+    element: <PrivateRoutes><Dashboard></Dashboard></PrivateRoutes>,
     children:[
       {
         path:'',
-        element:<DashHome></DashHome>,
+        element:<PrivateRoutes><DashHome></DashHome></PrivateRoutes>,
       },
       //student routes
       {
         path:"booked-session",
-        element:<BookedSession></BookedSession>,
+        element:<PrivateRoutes><BookedSession></BookedSession></PrivateRoutes>,
       },
       {
         path:"create-note",
-        element:<CreateNote></CreateNote>,
+        element:<PrivateRoutes><CreateNote></CreateNote></PrivateRoutes>,
       },
       {
         path:"manage-notes",
-        element:<ManageNotes></ManageNotes>,
+        element:<PrivateRoutes><ManageNotes></ManageNotes></PrivateRoutes>,
       },
       {
         path:"all-study-materials",
-        element:<ViewAllMaterials></ViewAllMaterials>,
+        element:<PrivateRoutes><ViewAllMaterials></ViewAllMaterials></PrivateRoutes>,
       },
       
       //tutor routes
 
       {
         path:"create-session",
-        element:<CreateSession></CreateSession>,
+        element:<TutorRoute><CreateSession></CreateSession></TutorRoute>,
       },
 
       {
         path:"created-sessions",
-        element:<CreatedSessions></CreatedSessions>,
+        element:<TutorRoute><CreatedSessions></CreatedSessions></TutorRoute>,
       },
        
       {
         path:"upload-materials",
-        element:<UploadMaterials></UploadMaterials>,
+        element:<TutorRoute><UploadMaterials></UploadMaterials></TutorRoute>,
       },
 
       {
         path:"all-uploaded-materials",
-        element:<AllUploadedMaterials></AllUploadedMaterials>,
+        element:<TutorRoute><AllUploadedMaterials></AllUploadedMaterials></TutorRoute>,
       },
 
 
@@ -98,17 +100,17 @@ export const router = createBrowserRouter([
       //admin routes
       {
         path:"all-users",
-        element: <AllUsers></AllUsers>,
+        element: <AdminRoute><AllUsers></AllUsers></AdminRoute>,
       },
 
       {
         path:"all-sessions",
-        element:<AllSessions></AllSessions> ,
+        element: <AdminRoute><AllSessions></AllSessions></AdminRoute> ,
       },
 
       {
         path:"all-materials",
-        element: <AllMaterials></AllMaterials>,
+        element: <AdminRoute><AllMaterials></AllMaterials></AdminRoute>,
       },
 
     ]

@@ -1,12 +1,12 @@
 import { useQuery } from "@tanstack/react-query";
-import useAxiosSecure from "./useAxiosSecure";
+import useAxiosPublic from "./useAxiosPublic";
 
 const useSession = () => {
-    const axiosSecure = useAxiosSecure();
+    const axiosPublic = useAxiosPublic();
     const {data : session =[]} = useQuery({
         queryKey:['session'],
         queryFn: async () =>{
-            const res = await axiosSecure.get('/sessions')
+            const res = await axiosPublic.get('/sessions')
             return res.data;
         }
     })
