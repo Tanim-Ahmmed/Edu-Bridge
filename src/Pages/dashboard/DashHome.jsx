@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 const DashHome = () => {
   return (
     <div>
-      <div className="dashboard-welcome">
-        <h1>Welcome to Your Dashboard</h1>
+      <div className="text-center py-6 space-y-4  mx-4">
+        <h1 className="text-gray-900 font-bold text-xl">Welcome to Your Dashboard</h1>
         <p>
           The <strong>Collaborative Study Platform</strong> is designed to
           enhance collaboration among students, tutors, and administrators.

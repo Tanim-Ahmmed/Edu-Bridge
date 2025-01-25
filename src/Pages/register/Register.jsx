@@ -91,7 +91,7 @@ const Register = () => {
         name: res.user?.displayName,
         email: res.user?.email,
         photo: res.user?.photoURL,
-        role: "Student",
+        role: "student",
       }
       axiosPublic.post('/users', userInfo)
       .then(res => {
@@ -203,8 +203,8 @@ const Register = () => {
               <option value="" disabled>
                 Select Role
               </option>
-              <option value="Student">Student</option>
-              <option value="Tutor">Tutor</option>
+              <option value="student">Student</option>
+              <option value="tutor">Tutor</option>
             </select>
 
                 </div>
