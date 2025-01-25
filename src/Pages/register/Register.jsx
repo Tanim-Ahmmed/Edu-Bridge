@@ -5,8 +5,10 @@ import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import { toast } from "react-toastify";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
 
 const Register = () => {
+  const axiosPublic = useAxiosPublic();
   const { createUser, handleGoogleLogin, updateUser, setUser } = useAuth();
   const [showPass, setShowPass] = useState(false);
   const [role, setRole] = useState("");
@@ -55,11 +57,22 @@ const Register = () => {
         setUser(user);
         updateUser({ displayName: name, photoURL: photo })
           .then((res) => {
-            navigate("/");
-            toast.success("Welcome ! Your Sign up successfull ", {
-              position: "top-center",
-              autoClose: 3000,
-            });
+            const userInfo = {
+              name: name,
+              email: user.email,
+              photo: photo,
+              role: role,
+            }
+            axiosPublic.post('/users', userInfo)
+            .then(res=>{
+              if(res.data.insertedId){
+                navigate("/");
+                toast.success("Welcome ! Your Sign up successfull ", {
+                  position: "top-center",
+                  autoClose: 3000,
+                });
+              }
+            })
           })
           .catch((error) => {
             setErr(error.code);
