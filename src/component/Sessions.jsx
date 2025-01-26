@@ -1,5 +1,4 @@
 import useSession from "../hooks/useSession";
-import img from "../assets/logo/logo.png"
 import { Link } from "react-router-dom";
 const Sessions = () => {
   const [session] = useSession();
@@ -19,7 +18,7 @@ const Sessions = () => {
       
             <figure className="px-5 pt-5">
               <img
-                src={img}
+                src={item.image}
                 alt="Volunteer posts"
                 className="rounded-xl object-cover w-full aspect-[3/2]"
               />
@@ -30,12 +29,12 @@ const Sessions = () => {
                 Tutor: 
                 <span className="bg-green-200 py-1 px-5 border border-green-600 rounded-3xl font-bold">
                  
-                  {item.tutorName }
+                  {item.name }
                 </span>
               </p>
               <div className="w-full flex justify-between py-3 border-b-2">
-                <p className="font-bold"> {item.classEndDate}</p>
-                <p className="font-bold"> {item.classStartTime   }</p>
+                <p className="font-bold"> {item.classStartDate.split("T")[0]}</p>
+                <p className="font-bold"> {item.classEndDate.split("T")[0]}</p>
               </div>
 
               <div className="card-actions mt-4 ">

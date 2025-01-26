@@ -7,8 +7,8 @@ const Dashboard = () => {
   const [isTutor] = useTutor();
   console.log(isTutor)
   return (
-    <div className="flex max-w-7xl mx-auto">
-      <div className="w-64 min-h-screen bg-green-200 ">
+    <div className="sm:flex max-w-7xl mx-auto ">
+      <div className="sm:w-64 sm:min-h-screen bg-green-200 ">
         <ul className="menu p-4 space-y-4">
           {isAdmin ? (
             <>
@@ -34,7 +34,7 @@ const Dashboard = () => {
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/dashboard/created-sessions">All Created Study Sessions
+                <NavLink to="/dashboard/created-sessions">View All Study Sessions
                 </NavLink>
               </li>
               <li>
