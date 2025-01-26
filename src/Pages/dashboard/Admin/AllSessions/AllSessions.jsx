@@ -23,7 +23,7 @@ const AllSessions = () => {
         {pendingSessions.length > 0 ? (
           <SessionsCard sessions={pendingSessions} refetch={refetch}></SessionsCard>
         ) : (
-            <p className="text-red-500 text-center text-lg">No Study session Pending</p>
+            <p className="text-red-500 py-4 text-center text-lg">No Study session Pending</p>
         )}
       </div>
 
@@ -32,7 +32,7 @@ const AllSessions = () => {
         {approvedSessions.length > 0 ? (
           <SessionsCard sessions={approvedSessions} refetch={refetch}></SessionsCard>
         ) : (
-            <p className="text-red-500 text-center text-lg">No Study session Approved</p>
+            <p className="text-red-500 py-4 text-center text-lg">No Study session Approved</p>
         )}
       </div>
 
@@ -41,7 +41,7 @@ const AllSessions = () => {
         {rejectedSessions.length > 0 ? (
           <SessionsCard sessions={rejectedSessions} refetch={refetch}></SessionsCard>
         ) : (
-          <p className="text-red-500 text-center text-lg">No Study session Rejected</p>
+          <p className="text-red-500 py-4 text-center text-lg">No Study session Rejected</p>
         )}
       </div>
     </div>
