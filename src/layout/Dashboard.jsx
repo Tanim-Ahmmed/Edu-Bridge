@@ -5,7 +5,6 @@ import useTutor from "../hooks/useTutor";
 const Dashboard = () => {
   const [isAdmin] = useAdmin();
   const [isTutor] = useTutor();
-  console.log(isTutor)
   return (
     <div className="sm:flex max-w-7xl mx-auto ">
       <div className="sm:w-64 sm:min-h-screen bg-green-200 ">

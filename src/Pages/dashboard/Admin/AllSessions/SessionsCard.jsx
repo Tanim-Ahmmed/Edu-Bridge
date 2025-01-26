@@ -8,20 +8,31 @@ const SessionsCard = ({ sessions, refetch }) => {
   const axiosSecure = useAxiosSecure();
 
   const requestToReject = (id) => {
-    axiosSecure
+
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) =>{
+      if (result.isConfirmed){
+        axiosSecure
       .patch(`/sessions/status/${id}`, { status: "rejected" })
       .then((res) => {
         if (res.data.modifiedCount > 0) {
-          refetch();
-          Swal.fire({
-            position: "top-end",
-            icon: "success",
-            title: "Session has been rejected",
-            showConfirmButton: false,
-            timer: 1500,
+              refetch();
+              Swal.fire({
+                title: "Deleted!",
+                text: "The session has been deleted.",
+                icon: "success",
+              });
+            }
           });
-        }
-      });
+      }
+    });
   };
 
   const handleOpenModal = (e, id) => {
