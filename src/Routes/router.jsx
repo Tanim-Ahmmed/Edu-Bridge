@@ -23,6 +23,7 @@ import AllUploadedMaterials from "../Pages/dashboard/tutor/UploadedMaterials/All
 import UploadMaterials from "../Pages/dashboard/tutor/uploadMaterials/UploadMaterials";
 import AdminRoute from "./AdminRoute";
 import TutorRoute from "./TutorRoute";
+import BookedSessionDetails from "../Pages/dashboard/BookedSessionDetails";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -59,6 +60,10 @@ export const router = createBrowserRouter([
       {
         path:"booked-session",
         element:<PrivateRoutes><BookedSession></BookedSession></PrivateRoutes>,
+      },
+      {
+        path:"session-details/:id",
+        element:<PrivateRoutes><BookedSessionDetails></BookedSessionDetails></PrivateRoutes>
       },
       {
         path:"create-note",

@@ -80,7 +80,7 @@ const CreateNote = () => {
 
             <div className="form-control mt-6">
               <button className="btn btn-warning hover:border-orange-400 rounded-none">
-                Add Post
+                Add Note
               </button>
             </div>
           </form>
