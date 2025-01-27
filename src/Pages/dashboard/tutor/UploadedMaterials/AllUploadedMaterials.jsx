@@ -81,7 +81,7 @@ const AllUploadedMaterials = () => {
     return (
         <div>
            <h1 className="text-3xl font-semibold text-center py-6 pt-10">All Uploaded Materials</h1>
-           <div className="grid gap-6 lg:grid-cols-3 md:grid-cols-2 grid-cols-1">
+           <div className="grid gap-6 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 pl-6">
         {materials?.map((material) => (
           <div key={material._id} className="w-full m-3">
             <img src={material.image} alt="" className="w-full" />
