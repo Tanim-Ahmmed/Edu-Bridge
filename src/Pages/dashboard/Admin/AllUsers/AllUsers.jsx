@@ -2,13 +2,16 @@ import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import { FaRegEdit } from "react-icons/fa";
 import Swal from "sweetalert2";
+import { useState } from "react";
 
 const AllUsers = () => {
   const axiosSecure = useAxiosSecure();
+  const [search, setSearch] = useState("");
+  
   const { data: users = [], refetch } = useQuery({
-    queryKey: ["users"],
+    queryKey: ["users", search],
     queryFn: async () => {
-      const res = await axiosSecure.get("/users" );
+      const res = await axiosSecure.get(`/users?searchParams=${search}`);
       return res.data;
     },
   });
@@ -33,6 +36,12 @@ const AllUsers = () => {
     <div className="text-center mt-6">
       <div>
       <h1 className="text-3xl font-semibold text-center py-6 pt-10">All Users</h1>
+      <input
+          type="text"
+          onChange={(e) => setSearch(e.target.value)}
+          placeholder="Search volunteer post by title"
+          className="input input-bordered w-full rounded-3xl "
+        />
       </div>
       <div>
         <div className="overflow-x-auto">
