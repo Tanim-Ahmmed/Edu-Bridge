@@ -138,6 +138,7 @@ const SessionSection = () => {
                   {fee > 0 ? (
                     <button
                       disabled={!isStudent}
+                      onClick={() => handleFreeBook(id)}
                       className={`py-2 my-8 bg-green-400 mx-auto ${
                         !isStudent
                           ? "opacity-50 cursor-not-allowed"
