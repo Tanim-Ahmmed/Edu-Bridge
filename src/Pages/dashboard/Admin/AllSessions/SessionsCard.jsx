@@ -8,33 +8,55 @@ const SessionsCard = ({ sessions, refetch }) => {
   const axiosSecure = useAxiosSecure();
 
   const requestToReject = (id) => {
-
     Swal.fire({
-      title: "Are you sure?",
-      text: "You won't be able to revert this!",
-      icon: "warning",
+      input: "textarea",
+      inputLabel: "Rejection Reason",
+      inputPlaceholder: "Type your rejection reason here...",
+      inputAttributes: {
+        "aria-label": "Type your rejection reason here",
+      },
       showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, delete it!",
-    }).then((result) =>{
-      if (result.isConfirmed){
-        axiosSecure
-      .patch(`/sessions/status/${id}`, { status: "rejected" })
-      .then((res) => {
-        if (res.data.modifiedCount > 0) {
-              refetch();
+    }).then(async ({ value: reason }) => {
+      if (reason) {
+        const { value: feedback } = await Swal.fire({
+          input: "textarea",
+          inputLabel: "Rejection Feedback",
+          inputPlaceholder: "Provide additional feedback here...",
+          inputAttributes: {
+            "aria-label": "Provide additional feedback here",
+          },
+          showCancelButton: true,
+        });
+        if (feedback) {
+          axiosSecure
+            .patch(`/sessions/status/${id}`, {
+              status: "rejected",
+              rejectionReason: reason,
+              rejectionFeedback: feedback,
+            })
+            .then((res) => {
+              if (res.data.modifiedCount > 0) {
+                refetch();
+                Swal.fire({
+                  title: "Rejected!",
+                  text: "The session has been rejected successfully.",
+                  icon: "success",
+                });
+              }
+            })
+            .catch((error) => {
+              console.error(error);
               Swal.fire({
-                title: "Deleted!",
-                text: "The session has been deleted.",
-                icon: "success",
+                title: "Error!",
+                text: "Something went wrong while rejecting the session.",
+                icon: "error",
               });
-            }
-          });
+            });
+        }
       }
     });
   };
-
+  
   const handleOpenModal = (e, id) => {
     e.preventDefault();
     const modal = document.getElementById("update_session");

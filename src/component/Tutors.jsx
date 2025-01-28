@@ -10,12 +10,11 @@ const Tutors = () => {
     },
   });
   return (
-    <div>
-      <div className="text-center py-6">
+    <div className="py-20 shadow-inner  mb-10">
+      <div className="text-center ">
         <h1 className="text-2xl font-bold py-2">All Turors</h1>
-        <p>
-          Our study sessions are designed to help you master your subjects
-          through collaboration and expert guidance.
+        <p className="p-3 text-center">
+        Browse the complete list of tutors. View their expertise, ratings, and availability to find the perfect guide for your learning.
         </p>
       </div>
       <div className="grid grid-cols-1 m-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
