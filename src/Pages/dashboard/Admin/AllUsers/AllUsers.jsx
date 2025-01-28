@@ -36,6 +36,7 @@ const AllUsers = () => {
     <div className="text-center mt-6">
       <div>
       <h1 className="text-3xl font-semibold text-center py-6 pt-10">All Users</h1>
+      <p className="text-center px-6 pb-8">Manage the community of students, tutors, and administrators. View profiles, activity, and access controls for a streamlined experience.</p>
       <input
           type="text"
           onChange={(e) => setSearch(e.target.value)}

@@ -17,7 +17,7 @@ const AllSessions = () => {
       <h1 className="text-3xl font-semibold text-center py-6 pt-10">
         All Study Sessions
       </h1>
-
+      <p className="text-center px-6 pb-8">Explore all available study sessions. Join group or individual lessons tailored to your learning needs and goals</p>
       <div>
         <h2 className="sm:w-11/12 sm:pl-16 pt-6 text-lg font-semibold">Pending sessions: {pendingSessions.length}</h2>
         {pendingSessions.length > 0 ? (

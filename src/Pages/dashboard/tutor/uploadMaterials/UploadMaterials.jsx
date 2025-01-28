@@ -57,7 +57,7 @@ const UploadMaterials = () => {
       <h1 className="text-3xl font-semibold text-center py-6 pt-10">
         Upload New Materials
       </h1>
-
+          <p className="text-center px-6 pb-8">Upload study resources for students. Share important files, assignments, and notes to enhance collaborative learning opportunities</p>
       <div className="grid gap-6 lg:grid-cols-3 md:grid-cols-2 grid-cols-1">
         {approvedSessions?.map((session) => (
           <div key={session._id} className="w-full m-3">

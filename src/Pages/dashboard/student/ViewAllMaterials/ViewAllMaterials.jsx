@@ -28,6 +28,7 @@ const ViewAllMaterials = () => {
   return (
     <div className="text-center p-10">
       <h1 className="text-2xl font-bold py-10 ">View All Materials</h1>
+      <p className="text-center px-6 pb-8">Access a library of shared resources. Download notes, assignments, and presentations to support your learning journey.</p>
       <div className="grid gap-6 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 pl-6">
         {bookedSessions?.map((session) => (
           <div key={session._id} className="w-full m-3">

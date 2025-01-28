@@ -80,6 +80,7 @@ const ManageNotes = () => {
   return (
     <div className="text-center p-10 ">
       <h1 className="text-2xl font-bold py-10 ">Manage Your Notes</h1>
+      <p className="text-center px-6 pb-8">Review and organize your saved notes. Edit, delete, or sort them to keep your study materials structured and accessible.</p>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {notes.map((note) => (
           <div

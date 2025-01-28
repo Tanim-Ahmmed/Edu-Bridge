@@ -52,7 +52,7 @@ const Navbar = () => {
                 to="/dashboard"
                 className="py-2 px-4 link-hover bg-green-200 rounded-3xl  font-bold hover:border-2"
               >
-                Dashboard
+               Dashboard
               </Link>
 
               <Link

@@ -45,11 +45,11 @@ const AllMaterials = () => {
       <h1 className="text-3xl font-semibold text-center py-6 pt-10">
         All Materials
       </h1>
-
+      <p className="text-center px-6 pb-8">Access a library of shared resources. Download notes, assignments, and presentations to support your learning journey.</p>
       <div className=" mx-10 p-5 rounded-3xl text-center flex justify-center">
         <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {allMaterials.map((material) => (
-             <div key={material._id}>
+             <div key={material._id} className="shadow-inner p-2">
             <div
               className="relative group sm:w-64 sm:h-64 overflow-hidden m-5 rounded-3xl shadow-lg"
             >

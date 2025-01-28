@@ -67,6 +67,7 @@ const CreateSession = () => {
   return (
     <div>
       <h1 className="text-3xl font-semibold text-center py-6 pt-10">Add New Study Sessions</h1>
+      <p className="text-center px-6 pb-8">Schedule new study sessions with ease. Set topics, time, and participants to create a collaborative and engaging learning environment.</p>
       <div className="min-h-screen flex justify-center items-center sm:w-11/12 mx-auto">
         <div className="hero bg-base-100 min-h-screen">
           <div

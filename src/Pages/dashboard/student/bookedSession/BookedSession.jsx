@@ -18,6 +18,7 @@ const BookedSession = () => {
       <h1 className="text-3xl font-semibold text-center py-6 pt-10">
         Booked Session
       </h1>
+      <p className="text-center px-6 pb-8">View all your scheduled study sessions in one place. Manage appointments, track progress, and stay on top of your learning goals.</p>
       <div className="grid gap-6 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 pl-6 ">
         {booked.map((session) => (
           <div key={session._id} className="bg-base-200 p-6">

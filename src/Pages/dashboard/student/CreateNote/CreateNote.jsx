@@ -34,10 +34,12 @@ const CreateNote = () => {
   };
   return (
     <div className="min-h-screen flex justify-center items-center sm:w-11/12 mx-auto">
+    
       <div className="hero bg-base-100 min-h-screen ">
         <div className="card w-full shrink-0 rounded-none md:max-w-[800px] bg-base-200 shadow-lg">
           <div className="text-center pt-10">
-            <h1 className="text-2xl font-bold ">Create Your Notes</h1>
+          <h1 className="text-2xl font-bold ">Create Your Notes</h1>
+          <p className="text-center px-6 pb-8">Quickly jot down and organize your ideas. Create, edit, and save notes to keep track of your learning journey.</p>
           </div>
           <form onSubmit={handleAddNotes} className="card-body">
             <div className="form-control flex-1">
