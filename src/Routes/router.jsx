@@ -24,6 +24,7 @@ import UploadMaterials from "../Pages/dashboard/tutor/uploadMaterials/UploadMate
 import AdminRoute from "./AdminRoute";
 import TutorRoute from "./TutorRoute";
 import BookedSessionDetails from "../Pages/dashboard/BookedSessionDetails";
+import AboutPage from "../Pages/about/AboutPage";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -37,6 +38,10 @@ export const router = createBrowserRouter([
         {
           path:"/session-details/:id",
           element:<PrivateRoutes><SessionDetails></SessionDetails></PrivateRoutes>,
+        },
+        {
+          path:"/about",
+          element: <AboutPage></AboutPage>,
         },
         {
            path:"/login",

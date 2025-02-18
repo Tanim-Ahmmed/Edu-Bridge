@@ -56,12 +56,12 @@ const SessionsCard = ({ sessions, refetch }) => {
       }
     });
   };
-  
+
   const handleOpenModal = (e, id) => {
     e.preventDefault();
     const modal = document.getElementById("update_session");
     if (modal) {
-      modal.setAttribute("data-session-id", id); 
+      modal.setAttribute("data-session-id", id);
       modal.showModal();
     }
   };
@@ -74,21 +74,20 @@ const SessionsCard = ({ sessions, refetch }) => {
       const sessionId = modal.getAttribute("data-session-id");
 
       axiosSecure
-      .patch(`/sessions/fee/${sessionId}`, { fee: fee})
-      .then((res) => {
-        if (res.data.modifiedCount > 0) {
-          refetch();
-          Swal.fire({
-            position: "top-end",
-            icon: "success",
-            title: "Session has been Approved",
-            showConfirmButton: false,
-            timer: 1500,
-          });
-        }
-      });
-    
-  
+        .patch(`/sessions/fee/${sessionId}`, { fee: fee })
+        .then((res) => {
+          if (res.data.modifiedCount > 0) {
+            refetch();
+            Swal.fire({
+              position: "top-end",
+              icon: "success",
+              title: "Session has been Approved",
+              showConfirmButton: false,
+              timer: 1500,
+            });
+          }
+        });
+
       modal.close();
     }
   };
@@ -179,7 +178,9 @@ const SessionsCard = ({ sessions, refetch }) => {
                                       className="input input-bordered rounded-none w-full input-warning border-2"
                                     />
                                   </div>
-                                  <button className="btn btn-neutral mt-6 ">Update</button>
+                                  <button className="btn btn-neutral mt-6 ">
+                                    Update
+                                  </button>
                                 </form>
                               </div>
                             </div>

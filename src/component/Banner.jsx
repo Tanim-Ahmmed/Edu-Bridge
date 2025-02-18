@@ -5,7 +5,7 @@ const Banner = () => {
   const {user} = useAuth();
   return (
     <div
-      className="hero min-h-96 w-full "
+      className="hero w-full min-h-dvh"
       style={{
         backgroundImage:
           `url(${img})`,
