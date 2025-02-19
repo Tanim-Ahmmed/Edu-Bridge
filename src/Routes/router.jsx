@@ -6,6 +6,7 @@ import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/login/Login";
 import Register from "../Pages/register/Register";
+import AllSessionsPrimary from "../Pages/Sessions/AllSessionsPrimary"
 import SessionDetails from "../Pages/sessionDetails/SessionDetails";
 import PrivateRoutes from "./PrivateRoutes";
 import Dashboard from "../layout/Dashboard";
@@ -35,6 +36,10 @@ export const router = createBrowserRouter([
         {
             path:"/",
             element:<Home></Home>,
+        },
+        {
+          path:"/sessions",
+          element:<AllSessionsPrimary></AllSessionsPrimary>
         },
         {
           path:"/session-details/:id",

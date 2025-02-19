@@ -10,6 +10,7 @@ const SessionSection = () => {
   const axiosPublic = useAxiosPublic();
   const axiosSecure = useAxiosSecure();
   const { user } = useAuth();
+  console.log(user)
   const { id } = useParams();
   const now = new Date();
 

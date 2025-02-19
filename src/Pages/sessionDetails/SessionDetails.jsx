@@ -7,7 +7,7 @@ const SessionDetails = () => {
     
 
     return (
-        <div className="mt-16 min-h-screen">
+        <div className="mt-20 min-h-screen">
            <SessionSection></SessionSection>
            <ReviewSection></ReviewSection>
         </div>

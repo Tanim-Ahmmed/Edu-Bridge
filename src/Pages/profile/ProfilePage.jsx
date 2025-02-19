@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import useAuth from '../../hooks/useAuth';
 
 const ProfilePage = () => {
-  // For demo purposes, we'll use a state to toggle between roles
+  const { user } = useAuth();
   const [role, setRole] = useState('student');
 
   const containerVariants = {
@@ -48,9 +49,9 @@ const ProfilePage = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-green-50 to-green-100 py-12 px-4">
+    <div className="min-h-screen bg-gradient-to-b mt-16 from-green-50 to-green-100 py-12 px-4">
       {/* Role Toggle (Demo Only) */}
-      <div className="max-w-4xl mx-auto mb-8">
+      {/* <div className="max-w-4xl mx-auto mb-8">
         <select
           value={role}
           onChange={(e) => setRole(e.target.value)}
@@ -59,7 +60,7 @@ const ProfilePage = () => {
           <option value="student">View as Student</option>
           <option value="tutor">View as Tutor</option>
         </select>
-      </div>
+      </div> */}
 
       <motion.div
         variants={containerVariants}
@@ -77,7 +78,7 @@ const ProfilePage = () => {
               whileHover={{ scale: 1.05 }}
               className="w-32 h-32 bg-green-200 rounded-full flex items-center justify-center mb-4 md:mb-0 md:mr-8 relative"
             >
-              <span className="text-5xl">👤</span>
+              <span className="text-5xl"><img src={user?.photoURL} alt="" className='h-32 w-32 rounded-full' /></span>
               {role === 'tutor' && (
                 <div className="absolute -top-2 -right-2 bg-green-500 text-white px-3 py-1 rounded-full text-sm">
                   Verified
@@ -90,7 +91,7 @@ const ProfilePage = () => {
                 variants={itemVariants}
                 className="text-3xl font-bold text-green-800 mb-2"
               >
-                {role === 'student' ? 'Alex Johnson' : 'Dr. Sarah Smith'}
+                {role === 'student' ?`${user?.displayName}`: 'Dr. Sarah Smith'}
               </motion.h1>
               <motion.p 
                 variants={itemVariants}

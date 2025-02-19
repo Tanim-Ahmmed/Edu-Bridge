@@ -1,10 +1,13 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import logo from "../../assets/logo/eb.webp";
+import { motion } from 'framer-motion';
+import { AiOutlineLogout } from "react-icons/ai";
+import { MdVerifiedUser } from "react-icons/md";
 
 const Navbar = () => {
+  const navigate = useNavigate();
   const { user, logOut } = useAuth();
-  console.log(user);
   const links = (
     <>
       <li>
@@ -24,8 +27,8 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="fixed text-green-500 top-0 left-0 right-0  bg-base-200   z-50 shadow-lg">
-    <div className="navbar max-w-7xl mx-auto  ">
+    <div className="fixed  text-green-500 top-0 left-0 right-0  bg-base-100 z-50 py-2 backdrop-blur-xl h-20 opacity-90">
+    <div className="navbar max-w-7xl mx-auto ">
       <div className="navbar-start ">
       <div className="dropdown">
        
@@ -64,7 +67,7 @@ const Navbar = () => {
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
-            <ul className="menu menu-horizontal px-1">
+            <ul className="menu menu-horizontal text-base font-semibold px-1">
               {
                 links
               }
@@ -93,37 +96,43 @@ const Navbar = () => {
 
         <div>
           {user && user?.email ? (
-            <div className="space-x-2">
-              <Link
-                to="/dashboard"
-                className="py-2 px-4 link-hover bg-green-200 rounded-3xl  font-bold hover:border-2"
-              >
-               Dashboard
-              </Link>
-
-              <Link
-                to="/"
-                onClick={logOut}
-                className="py-2 px-4 link-hover bg-green-200 rounded-3xl text-red-500 font-bold hover:border-2"
-              >
-                LogOut
-              </Link>
-            </div>
+           <div className="space-x-2 flex items-center">
+           {/* Dashboard Button */}
+           <motion.button
+             onClick={() => navigate('/dashboard')}
+             whileHover={{ scale: 1.05 }}
+             whileTap={{ scale: 0.95 }}
+             className="px-6 py-2 bg-green-600 text-white rounded-full hover:bg-green-700 
+                        transition-colors duration-100"
+           >
+             Dashboard
+           </motion.button>
+         
+           {/* LogOut Button */}
+           <motion.button
+             onClick={logOut}
+             whileHover={{ scale: 1.05 }}
+             whileTap={{ scale: 0.95 }}
+             className="flex items-center gap-2 py-2 px-4 bg-green-200 rounded-3xl text-red-500 
+                        font-bold hover:border-2 hover:border-green-400 transition-all duration-100"
+           >
+             LogOut <AiOutlineLogout size={20} />
+           </motion.button>
+         </div>
+         
           ) : (
             <div>
-              <Link
-                to="/login"
-                className="py-2 px-4 link-hover bg-green-200 text-green-600 font-bold hover:border-2 rounded-3xl"
-              >
-                Login
-              </Link>
-              <Link
-                to="/register"
-                className="py-2 px-4 link-hover bg-green-200 text-green-600 font-bold hover:border-2 rounded-3xl"
-              >
-                Register
-              </Link>
-            </div>
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => navigate('/login')}
+              className="flex items-center gap-2 py-2 px-4 bg-green-200 text-green-600 
+                         font-bold hover:border-2 hover:border-green-400 rounded-3xl transition-all duration-100"
+            >
+              SignIn <MdVerifiedUser size={20} />
+            </motion.button>
+          </div>
+          
           )}
         </div>
       </div>
