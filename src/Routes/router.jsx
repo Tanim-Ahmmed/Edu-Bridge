@@ -25,6 +25,7 @@ import AdminRoute from "./AdminRoute";
 import TutorRoute from "./TutorRoute";
 import BookedSessionDetails from "../Pages/dashboard/BookedSessionDetails";
 import AboutPage from "../Pages/about/AboutPage";
+import ProfilePage from "../Pages/profile/ProfilePage";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -38,6 +39,10 @@ export const router = createBrowserRouter([
         {
           path:"/session-details/:id",
           element:<PrivateRoutes><SessionDetails></SessionDetails></PrivateRoutes>,
+        },
+        {
+          path:"/profile",
+          element: <PrivateRoutes><ProfilePage></ProfilePage></PrivateRoutes>
         },
         {
           path:"/about",
