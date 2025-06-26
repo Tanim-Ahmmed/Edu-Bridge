@@ -11,7 +11,6 @@ const useTutor = () => {
             const res = await axiosSecure.get(`/users/tutor/${user.email}`)
            return res.data?.tutor;
         }
-
     })
     return [isTutor, isTutorLoading]
 };
