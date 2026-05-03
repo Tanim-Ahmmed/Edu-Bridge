@@ -4,22 +4,39 @@ import logo from "../../assets/logo/eb.webp";
 import { motion } from 'framer-motion';
 import { AiOutlineLogout } from "react-icons/ai";
 import { MdVerifiedUser } from "react-icons/md";
+import { HiMoon, HiSun } from "react-icons/hi";
+import useTheme from "../../hooks/useTheme";
 
 const Navbar = () => {
   const navigate = useNavigate();
   const { user, logOut } = useAuth();
+  const { isDarkMode, toggleTheme } = useTheme();
   const links = (
     <>
       <li>
-        <NavLink to="/">Home</NavLink>
+        <NavLink
+          to="/"
+          className={({ isActive }) =>
+            isActive ? "font-bold text-primary" : "hover:text-primary"
+          }
+        >
+          Home
+        </NavLink>
       </li>
       <li>
-        <NavLink to="/sessions">Sessions</NavLink>
+        <NavLink
+          to="/sessions"
+          className={({ isActive }) =>
+            isActive ? "font-bold text-primary" : "hover:text-primary"
+          }
+        >
+          Sessions
+        </NavLink>
       </li>
     </>
   );
   return (
-    <div className="fixed  text-green-500 top-0 left-0 right-0  bg-base-100 z-50 py-2 backdrop-blur-xl h-20 opacity-90">
+    <div className="fixed top-0 left-0 right-0 z-50 h-20 border-b border-base-300 bg-base-100/90 text-base-content backdrop-blur-xl">
     <div className="navbar max-w-7xl mx-auto ">
       <div className="navbar-start ">
       <div className="dropdown">
@@ -66,6 +83,15 @@ const Navbar = () => {
             </ul>
           </div>
       <div className="navbar-end gap-4">
+        <button
+          type="button"
+          onClick={toggleTheme}
+          className="theme-btn-ghost btn-sm rounded-full"
+          aria-label="Toggle theme"
+        >
+          {isDarkMode ? <HiSun size={18} /> : <HiMoon size={18} />}
+          <span className="hidden sm:inline">{isDarkMode ? "Light" : "Dark"}</span>
+        </button>
 
         <div>
           {user && user?.email ? (
@@ -94,8 +120,7 @@ const Navbar = () => {
              onClick={() => navigate('/dashboard')}
              whileHover={{ scale: 1.05 }}
              whileTap={{ scale: 0.95 }}
-             className="px-6 py-2 bg-green-600 text-white rounded-full hover:bg-green-700 
-                        transition-colors duration-100"
+             className="theme-btn-primary rounded-full px-6"
            >
              Dashboard
            </motion.button>
@@ -105,8 +130,7 @@ const Navbar = () => {
              onClick={logOut}
              whileHover={{ scale: 1.05 }}
              whileTap={{ scale: 0.95 }}
-             className="flex items-center gap-2 py-2 px-4 bg-green-200 rounded-3xl text-red-500 
-                        font-bold hover:border-2 hover:border-green-400 transition-all duration-100"
+             className="theme-btn-accent rounded-3xl px-4"
            >
              LogOut <AiOutlineLogout size={20} />
            </motion.button>
@@ -118,8 +142,7 @@ const Navbar = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => navigate('/login')}
-              className="flex items-center gap-2 py-2 px-4 bg-green-200 text-green-600 
-                         font-bold hover:border-2 hover:border-green-400 rounded-3xl transition-all duration-100"
+              className="theme-btn-ghost rounded-3xl px-4"
             >
               SignIn <MdVerifiedUser size={20} />
             </motion.button>

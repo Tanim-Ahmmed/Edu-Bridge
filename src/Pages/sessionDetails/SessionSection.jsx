@@ -75,20 +75,20 @@ const SessionSection = () => {
     <div>
       <div>
         <div
-          className="hero"
+          className="hero overflow-hidden rounded-[2rem]"
           style={{
             backgroundImage: `url(${image})`,
           }}
         >
-          <div className="hero-overlay bg-opacity-60"></div>
+          <div className="hero-overlay bg-neutral/75"></div>
           <div className="hero-content text-neutral-content ">
-            <div className="max-w-md ">
+            <div className="max-w-3xl rounded-[2rem] border border-neutral-content/10 bg-neutral/35 p-8 backdrop-blur-sm">
               <h1 className=" text-3xl font-bold pt-8 text-center">{title}</h1>
               <div className="flex justify-between">
-                <p className="flex justify-start font-bold text-white mb-6">
+                <p className="mb-6 flex justify-start font-bold text-neutral-content">
                   Tutor: {name} <br /> Email: {email}
                 </p>
-                <p className="flex justify-start font-bold text-white mb-6">
+                <p className="mb-6 flex justify-start font-bold text-neutral-content">
                   Rating: 4.7 <br /> Duration : {duration}
                 </p>
               </div>
@@ -129,7 +129,7 @@ const SessionSection = () => {
                 </div>
               </div>
 
-              <p className=" hero-overlay bg-opacity-60 p-8 rounded-2xl font-semibold">
+              <p className="rounded-2xl bg-base-100/15 p-8 font-semibold text-neutral-content">
                 {description}
               </p>
               <p className="text-center text-xl mt-2">Fee :${fee}</p>
@@ -140,14 +140,14 @@ const SessionSection = () => {
                     <button
                       disabled={!isStudent}
                       onClick={() => handleFreeBook(id)}
-                      className={`py-2 my-8 bg-green-400 mx-auto ${
+                      className={`mx-auto my-8 flex items-center justify-center gap-3 rounded-3xl px-4 py-2 font-bold ${
                         !isStudent
                           ? "opacity-50 cursor-not-allowed"
-                          : "hover:bg-white hover:text-green-500"
-                      } rounded-3xl flex gap-3 items-center text-white font-bold px-4 justify-center`}
+                          : "hover:brightness-110"
+                      } bg-primary text-primary-content`}
                     >
                       Book Now {fee} $
-                      <div className="text-lg border p-2 rounded-full hover:bg-white hover:text-green-600">
+                      <div className="rounded-full border border-primary-content/30 p-2 text-lg">
                         <CiBookmark />
                       </div>
                     </button>
@@ -155,21 +155,21 @@ const SessionSection = () => {
                     <button
                       disabled={!isStudent}
                       onClick={() => handleFreeBook(id)}
-                      className={`py-2 my-8 bg-green-400 mx-auto ${
+                      className={`mx-auto my-8 flex items-center justify-center gap-3 rounded-3xl px-4 py-2 font-bold ${
                         !isStudent
                           ? "opacity-50 cursor-not-allowed"
-                          : "hover:bg-white hover:text-green-500"
-                      } rounded-3xl flex gap-3 items-center text-white font-bold px-4 justify-center`}
+                          : "hover:brightness-110"
+                      } bg-primary text-primary-content`}
                     >
                       Book Now Free
-                      <div className="text-lg border p-2 rounded-full hover:bg-white hover:text-green-600">
+                      <div className="rounded-full border border-primary-content/30 p-2 text-lg">
                         <CiBookmarkCheck />
                       </div>
                     </button>
                   )}
                 </div>
               ) : (
-                <button className="flex btn  mx-auto mt-6 btn-warning cursor-not-allowed">Registration End</button>
+                <button className="theme-btn-secondary mx-auto mt-6 cursor-not-allowed rounded-full opacity-90">Registration End</button>
               )}
             </div>
           </div>

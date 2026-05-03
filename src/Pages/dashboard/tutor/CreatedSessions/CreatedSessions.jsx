@@ -2,12 +2,13 @@ import { useQuery } from "@tanstack/react-query";
 import useAuth from "../../../../hooks/useAuth";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
+import CardSkeleton from "../../../../component/CardSkeleton";
 
 const CreatedSessions = () => {
   const { user } = useAuth();
   const axiosSecure = useAxiosSecure();
 
-  const { data: mySessions = [], refetch } = useQuery({
+  const { data: mySessions = [], refetch, isLoading } = useQuery({
     queryKey: ["mySessions"],
     queryFn: async () => {
       const res = await axiosSecure.get(`/sessions/email/${user.email}`);
@@ -33,32 +34,28 @@ const CreatedSessions = () => {
   return (
     <div>
       <h1 className="text-3xl font-semibold text-center py-6 pt-10">All Created Study Sessions</h1>
-       <p className="text-center px-6 pb-8">Explore all available study sessions. Join group or individual lessons tailored to your learning needs and goals</p>
-      <div className="grid grid-cols-1 m-6 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+       <p className="theme-muted text-center px-6 pb-8">Explore all available study sessions. Join group or individual lessons tailored to your learning needs and goals</p>
+      <div className="m-6 grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-4">
+        {isLoading &&
+          Array.from({ length: 4 }).map((_, index) => (
+            <CardSkeleton key={index} variant="session" />
+          ))}
+
         {mySessions.map((session) => (
-          <div key={session._id} className="card bg-base-100 shadow-xl">
-            <figure className="px-5 pt-5">
+          <article key={session._id} className="theme-card-pro group overflow-hidden">
+            <figure className="theme-card-figure">
               <img
                 src={session.image}
-                alt="Volunteer posts"
-                className="rounded-xl object-cover w-full aspect-[3/2]"
+                alt={session.title}
+                className="theme-card-image"
               />
             </figure>
-            <div className="card-body items-center text-center">
-              <h2 className="card-title">{session.title}</h2>
-
-              <div className="w-full flex justify-between py-3 border-b-2">
-                <p className="font-bold">
-                  {session.classStartDate.split("T")[0]}
-                </p>
-                <p className="font-bold">
-                  {session.classEndDate.split("T")[0]}
-                </p>
-              </div>
-              <p className="text-base-900 font-bold ">
-                Status :
+            <div className="space-y-5 p-5">
+              <div className="space-y-2">
+                <p className="theme-kicker">Your Session</p>
+                <h2 className="text-xl font-bold text-base-content">{session.title}</h2>
                 <span
-                  className={`py-1 px-5 border rounded-3xl font-bold ${
+                  className={`inline-flex rounded-full border px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] ${
                     session.status === "pending"
                       ? "bg-yellow-200 border-yellow-400"
                       : session.status === "approved"
@@ -70,22 +67,39 @@ const CreatedSessions = () => {
                 >
                   {session.status}
                 </span>
-              </p>
+              </div>
 
-              <div className="card-actions mt-4 ">
-                {
-                    session?.status === "rejected" ? <button
+              <div className="grid grid-cols-2 gap-3">
+                <div className="theme-metric">
+                  <p className="theme-metric-label">Class Starts</p>
+                  <p className="theme-metric-value">{session.classStartDate.split("T")[0]}</p>
+                </div>
+                <div className="theme-metric">
+                  <p className="theme-metric-label">Class Ends</p>
+                  <p className="theme-metric-value">{session.classEndDate.split("T")[0]}</p>
+                </div>
+              </div>
+
+              <div className="pt-1">
+                {session?.status === "rejected" ? (
+                  <button
                     onClick={() => requestToApprove(session._id)}
-                     className="btn btn-neutral rounded-3xl px-6 py-2 text-white bg-neutral hover:bg-neutral-dark">
-                      Request to Approve
-                    </button> : session?.status === "approved" ? 
-                        <p className="text-green-400 font-bold">your study session is approved</p> : <p className="text-yellow-400 font-bold">Your study session request has been pending</p>
-                   
-                }
-                
+                    className="theme-btn-primary w-full rounded-full"
+                  >
+                    Request Approval Again
+                  </button>
+                ) : session?.status === "approved" ? (
+                  <p className="rounded-2xl bg-primary/10 px-4 py-3 text-center font-semibold text-primary">
+                    Your study session is approved
+                  </p>
+                ) : (
+                  <p className="rounded-2xl bg-secondary/10 px-4 py-3 text-center font-semibold text-secondary">
+                    Your study session request is pending
+                  </p>
+                )}
               </div>
             </div>
-          </div>
+          </article>
         ))}
       </div>
     </div>

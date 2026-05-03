@@ -3,7 +3,7 @@ import useAxiosPublic from "./useAxiosPublic";
 
 const useSession = () => {
     const axiosPublic = useAxiosPublic();
-    const {data : sessions =[], refetch } = useQuery({
+    const {data : sessions =[], refetch, isLoading } = useQuery({
         queryKey:['sessions'],
         queryFn: async () =>{
             const res = await axiosPublic.get('/sessions')
@@ -11,7 +11,7 @@ const useSession = () => {
         }
     })
 
-    return [sessions, refetch]
+    return [sessions, refetch, isLoading]
 };
 
 export default useSession;

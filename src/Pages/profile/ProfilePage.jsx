@@ -49,7 +49,7 @@ const ProfilePage = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b mt-16 from-green-50 to-green-100 py-12 px-4">
+    <div className="theme-hero min-h-screen mt-16 py-12 px-4">
       {/* Role Toggle (Demo Only) */}
       {/* <div className="max-w-4xl mx-auto mb-8">
         <select
@@ -71,16 +71,16 @@ const ProfilePage = () => {
         {/* Profile Header */}
         <motion.div 
           variants={itemVariants}
-          className="bg-white rounded-xl shadow-lg p-8 mb-8"
+          className="theme-card mb-8 p-8"
         >
           <div className="flex flex-col md:flex-row items-center">
             <motion.div
               whileHover={{ scale: 1.05 }}
-              className="w-32 h-32 bg-green-200 rounded-full flex items-center justify-center mb-4 md:mb-0 md:mr-8 relative"
+              className="relative mb-4 flex h-32 w-32 items-center justify-center rounded-full bg-primary/15 md:mb-0 md:mr-8"
             >
               <span className="text-5xl"><img src={user?.photoURL} alt="" className='h-32 w-32 rounded-full' /></span>
               {role === 'tutor' && (
-                <div className="absolute -top-2 -right-2 bg-green-500 text-white px-3 py-1 rounded-full text-sm">
+                <div className="absolute -top-2 -right-2 rounded-full bg-primary px-3 py-1 text-sm text-primary-content">
                   Verified
                 </div>
               )}
@@ -89,19 +89,19 @@ const ProfilePage = () => {
             <div className="text-center md:text-left">
               <motion.h1 
                 variants={itemVariants}
-                className="text-3xl font-bold text-green-800 mb-2"
+                className="mb-2 text-3xl font-bold text-base-content"
               >
                 {role === 'student' ?`${user?.displayName}`: 'Dr. Sarah Smith'}
               </motion.h1>
               <motion.p 
                 variants={itemVariants}
-                className="text-green-600 mb-2"
+                className="theme-muted mb-2"
               >
                 {role === 'student' ? 'Computer Science Student' : 'Professor of Computer Science'}
               </motion.p>
               <motion.p 
                 variants={itemVariants}
-                className="text-green-500 mb-4"
+                className="mb-4 text-primary"
               >
                 {role === 'student' ? 'Year 3 • Batch 2024' : 'PhD • 8 Years Experience'}
               </motion.p>
@@ -109,8 +109,7 @@ const ProfilePage = () => {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="px-6 py-2 bg-green-600 text-white rounded-full hover:bg-green-700 
-                           transition-colors duration-300"
+                  className="theme-btn-primary rounded-full px-6 py-2"
                 >
                   Edit Profile
                 </motion.button>
@@ -118,8 +117,7 @@ const ProfilePage = () => {
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="px-6 py-2 border-2 border-green-600 text-green-600 rounded-full
-                             hover:bg-green-50 transition-colors duration-300"
+                    className="theme-btn-ghost rounded-full px-6 py-2"
                   >
                     View Progress
                   </motion.button>
@@ -128,8 +126,7 @@ const ProfilePage = () => {
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="px-6 py-2 border-2 border-green-600 text-green-600 rounded-full
-                             hover:bg-green-50 transition-colors duration-300"
+                    className="theme-btn-ghost rounded-full px-6 py-2"
                   >
                     Schedule Class
                   </motion.button>
@@ -148,10 +145,10 @@ const ProfilePage = () => {
             <motion.div
               key={index}
               whileHover={{ y: -5 }}
-              className="bg-white p-6 rounded-xl shadow-lg text-center"
+              className="theme-card p-6 text-center"
             >
-              <h3 className="text-2xl font-bold text-green-800">{stat.value}</h3>
-              <p className="text-green-600">{stat.label}</p>
+              <h3 className="text-2xl font-bold text-base-content">{stat.value}</h3>
+              <p className="theme-muted">{stat.label}</p>
             </motion.div>
           ))}
         </motion.div>
@@ -160,18 +157,18 @@ const ProfilePage = () => {
         {role === 'student' && (
           <motion.div 
             variants={itemVariants}
-            className="bg-white rounded-xl shadow-lg p-8 mb-8"
+            className="theme-card mb-8 p-8"
           >
-            <h2 className="text-2xl font-bold text-green-800 mb-4">Current Courses</h2>
+            <h2 className="mb-4 text-2xl font-bold text-base-content">Current Courses</h2>
             <div className="space-y-4">
               {['Advanced Mathematics', 'Physics 101', 'Chemistry Basics'].map((course, index) => (
                 <motion.div
                   key={index}
                   whileHover={{ x: 10 }}
-                  className="flex items-center justify-between p-4 bg-green-50 rounded-lg"
+                  className="flex items-center justify-between rounded-lg bg-base-200 p-4"
                 >
-                  <span className="text-green-800 font-medium">{course}</span>
-                  <span className="text-green-600">In Progress</span>
+                  <span className="font-medium text-base-content">{course}</span>
+                  <span className="text-secondary">In Progress</span>
                 </motion.div>
               ))}
             </div>
@@ -181,9 +178,9 @@ const ProfilePage = () => {
         {role === 'tutor' && (
           <motion.div 
             variants={itemVariants}
-            className="bg-white rounded-xl shadow-lg p-8 mb-8"
+            className="theme-card mb-8 p-8"
           >
-            <h2 className="text-2xl font-bold text-green-800 mb-4">Teaching Schedule</h2>
+            <h2 className="mb-4 text-2xl font-bold text-base-content">Teaching Schedule</h2>
             <div className="space-y-4">
               {[
                 { course: 'Advanced Mathematics', time: 'Mon, Wed 10:00 AM' },
@@ -193,10 +190,10 @@ const ProfilePage = () => {
                 <motion.div
                   key={index}
                   whileHover={{ x: 10 }}
-                  className="flex items-center justify-between p-4 bg-green-50 rounded-lg"
+                  className="flex items-center justify-between rounded-lg bg-base-200 p-4"
                 >
-                  <span className="text-green-800 font-medium">{schedule.course}</span>
-                  <span className="text-green-600">{schedule.time}</span>
+                  <span className="font-medium text-base-content">{schedule.course}</span>
+                  <span className="text-primary">{schedule.time}</span>
                 </motion.div>
               ))}
             </div>
@@ -206,9 +203,9 @@ const ProfilePage = () => {
         {/* Recent Activity */}
         <motion.div 
           variants={itemVariants}
-          className="bg-white rounded-xl shadow-lg p-8"
+          className="theme-card p-8"
         >
-          <h2 className="text-2xl font-bold text-green-800 mb-6">Recent Activity</h2>
+          <h2 className="mb-6 text-2xl font-bold text-base-content">Recent Activity</h2>
           <div className="space-y-6">
             {(role === 'student' ? studentActivities : tutorActivities).map((activity, index) => (
               <motion.div
@@ -218,12 +215,12 @@ const ProfilePage = () => {
                 transition={{ delay: index * 0.1 }}
                 className="flex items-start space-x-4"
               >
-                <div className="w-2 h-2 bg-green-500 rounded-full mt-2"></div>
+                <div className="mt-2 h-2 w-2 rounded-full bg-primary"></div>
                 <div>
-                  <p className="text-green-800 font-medium">
-                    {activity.action} - <span className="text-green-600">{activity.course}</span>
+                  <p className="font-medium text-base-content">
+                    {activity.action} - <span className="text-primary">{activity.course}</span>
                   </p>
-                  <p className="text-green-500 text-sm">{activity.time}</p>
+                  <p className="text-sm text-secondary">{activity.time}</p>
                 </div>
               </motion.div>
             ))}

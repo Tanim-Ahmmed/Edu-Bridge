@@ -5,7 +5,7 @@ import { ToastContainer } from "react-toastify";
 
 const Main = () => {
     return (
-        <div className="">
+        <div className="theme-page min-h-screen">
             <Navbar></Navbar>
             <Outlet></Outlet>
             <Footer></Footer>

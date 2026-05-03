@@ -8,3 +8,218 @@
   font-family: "Lato", serif;
   font-style: normal;
 }
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  background-color: hsl(var(--b1));
+  color: hsl(var(--bc));
+}
+
+@layer base {
+  a,
+  button,
+  input,
+  textarea,
+  select {
+    transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease,
+      box-shadow 0.2s ease, transform 0.2s ease;
+  }
+}
+
+@layer components {
+  .theme-page {
+    @apply bg-base-100 text-base-content;
+  }
+
+  .theme-hero {
+    @apply bg-gradient-to-b from-base-100 via-base-200 to-base-100 text-base-content;
+  }
+
+  .theme-card {
+    @apply rounded-2xl border border-base-300 bg-base-100 text-base-content shadow-lg;
+  }
+
+  .theme-card-soft {
+    @apply rounded-2xl border border-base-300 bg-base-200 text-base-content shadow-md;
+  }
+
+  .theme-card-pro {
+    @apply rounded-[1.75rem] border border-base-300 bg-base-100 text-base-content shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl;
+    background-image:
+      linear-gradient(180deg, color-mix(in srgb, hsl(var(--b1)) 94%, hsl(var(--p)) 6%), hsl(var(--b1))),
+      radial-gradient(circle at top right, color-mix(in srgb, hsl(var(--p)) 10%, transparent) 0, transparent 40%);
+  }
+
+  .theme-card-figure {
+    @apply relative overflow-hidden;
+  }
+
+  .theme-card-image {
+    @apply h-52 w-full object-cover transition-transform duration-500 group-hover:scale-105;
+  }
+
+  .theme-kicker {
+    @apply text-xs font-semibold uppercase tracking-[0.24em] text-primary/80;
+  }
+
+  .theme-metric {
+    @apply rounded-2xl border border-base-300 bg-base-200/80 p-3 text-left;
+  }
+
+  .theme-metric-label {
+    @apply mb-1 text-xs font-semibold uppercase tracking-[0.18em] text-base-content/55;
+  }
+
+  .theme-metric-value {
+    @apply text-sm font-semibold text-base-content;
+  }
+
+  .theme-btn-primary {
+    @apply btn border-none bg-primary text-primary-content hover:bg-primary hover:brightness-110;
+  }
+
+  .theme-btn-secondary {
+    @apply btn border-none bg-secondary text-secondary-content hover:bg-secondary hover:brightness-110;
+  }
+
+  .theme-btn-accent {
+    @apply btn border-none bg-accent text-accent-content hover:bg-accent hover:brightness-110;
+  }
+
+  .theme-btn-ghost {
+    @apply btn border-base-300 bg-base-100 text-base-content hover:border-primary hover:bg-base-200;
+  }
+
+  .theme-badge-primary {
+    @apply inline-flex items-center rounded-full border border-primary/30 bg-primary/15 px-4 py-1 text-sm font-semibold text-primary;
+  }
+
+  .theme-badge-secondary {
+    @apply inline-flex items-center rounded-full border border-secondary/30 bg-secondary/15 px-4 py-1 text-sm font-semibold text-secondary;
+  }
+
+  .theme-badge-accent {
+    @apply inline-flex items-center rounded-full border border-accent/30 bg-accent/15 px-4 py-1 text-sm font-semibold text-accent;
+  }
+
+  .theme-section-title {
+    @apply text-2xl font-bold text-base-content;
+  }
+
+  .theme-muted {
+    @apply text-base-content/70;
+  }
+}
+
+@layer utilities {
+  .bg-green-50,
+  .bg-green-100,
+  .bg-white,
+  .bg-gray-200,
+  .bg-gray-300 {
+    background-color: hsl(var(--b1)) !important;
+  }
+
+  .bg-green-200,
+  .bg-green-300,
+  .bg-green-100\/20 {
+    background-color: color-mix(in srgb, hsl(var(--p)) 18%, transparent) !important;
+  }
+
+  .bg-green-400,
+  .bg-green-500,
+  .bg-green-600,
+  .bg-green-500\/80 {
+    background-color: hsl(var(--p)) !important;
+  }
+
+  .bg-green-800,
+  .bg-green-900 {
+    background-color: color-mix(in srgb, hsl(var(--p)) 45%, hsl(var(--n)) 55%) !important;
+  }
+
+  .bg-red-200,
+  .bg-red-400,
+  .bg-red-500,
+  .bg-red-600 {
+    background-color: hsl(var(--a)) !important;
+  }
+
+  .bg-yellow-200,
+  .bg-yellow-400,
+  .bg-orange-400 {
+    background-color: color-mix(in srgb, hsl(var(--s)) 28%, hsl(var(--b1)) 72%) !important;
+  }
+
+  .text-gray-700,
+  .text-gray-800,
+  .text-gray-900,
+  .text-base-900,
+  .text-green-800,
+  .text-black {
+    color: hsl(var(--bc)) !important;
+  }
+
+  .text-gray-600,
+  .text-green-600,
+  .text-green-500,
+  .text-green-400,
+  .text-green-100 {
+    color: color-mix(in srgb, hsl(var(--bc)) 72%, hsl(var(--p)) 28%) !important;
+  }
+
+  .text-red-500,
+  .text-red-600 {
+    color: hsl(var(--a)) !important;
+  }
+
+  .text-yellow-400,
+  .text-yellow-500 {
+    color: hsl(var(--s)) !important;
+  }
+
+  .border-green-300,
+  .border-green-400,
+  .border-green-500,
+  .border-green-600,
+  .border-green-700 {
+    border-color: color-mix(in srgb, hsl(var(--p)) 50%, hsl(var(--b3)) 50%) !important;
+  }
+
+  .border-red-400,
+  .border-red-700 {
+    border-color: hsl(var(--a)) !important;
+  }
+
+  .border-yellow-400,
+  .border-orange-400 {
+    border-color: hsl(var(--s)) !important;
+  }
+
+  .from-green-50,
+  .from-green-800 {
+    --tw-gradient-from: hsl(var(--b1)) var(--tw-gradient-from-position) !important;
+    --tw-gradient-to: hsl(var(--b1) / 0) var(--tw-gradient-to-position) !important;
+    --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to) !important;
+  }
+
+  .to-green-100,
+  .to-green-900 {
+    --tw-gradient-to: hsl(var(--b2)) var(--tw-gradient-to-position) !important;
+  }
+
+  .from-green-500 {
+    --tw-gradient-from: hsl(var(--p)) var(--tw-gradient-from-position) !important;
+    --tw-gradient-to: hsl(var(--p) / 0) var(--tw-gradient-to-position) !important;
+    --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to) !important;
+  }
+
+  .to-green-600 {
+    --tw-gradient-to: color-mix(in srgb, hsl(var(--p)) 82%, hsl(var(--n)) 18%) var(--tw-gradient-to-position) !important;
+  }
+}

@@ -106,9 +106,9 @@ const Register = () => {
   };
 
   return (
-    <div className="min-h-screen flex justify-center items-center mt-16">
+    <div className="theme-page min-h-screen flex justify-center items-center mt-16">
       <div className="hero min-h-screen">
-        <div className="card bg-base-200 shadow w-full max-w-lg shrink-0 rounded-none p-10">
+        <div className="theme-card-soft w-full max-w-lg shrink-0 p-10">
           <div className="text-center">
             <h1 className="text-2xl font-bold ">Register your account</h1>
           </div>
@@ -209,20 +209,20 @@ const Register = () => {
 
                 </div>
             <div className="form-control mt-6">
-              <button className="btn btn-neutral rounded-none">Register</button>
+              <button className="theme-btn-primary rounded-xl">Register</button>
             </div>
           </form>
-          {err && <p className="text-red-500 text-center">{err}</p>}
+          {err && <p className="text-accent text-center">{err}</p>}
 
           <p className="text-center font-semibold py-3">
             Allready Have an Account?
-            <Link to="/login" className="text-red-500 ml-3 font-bold">
+            <Link to="/login" className="ml-3 font-bold text-primary">
               Login
             </Link>
           </p>
           <div
             onClick={handleLoginWithGoogle}
-            className="flex justify-center items-center gap-4 border rounded-none py-3 font-bold w-full sm:w-10/12 mx-auto hover:text-white hover:bg-neutral hover:cursor-pointer"
+            className="mx-auto flex w-full cursor-pointer items-center justify-center gap-4 rounded-xl border border-base-300 py-3 font-bold sm:w-10/12 hover:bg-base-100"
           >
             <FcGoogle />
             <button> Sign in with Google</button>

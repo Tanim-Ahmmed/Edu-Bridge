@@ -71,9 +71,9 @@ const Login = () => {
       })
     }
     return (
-        <div className="min-h-screen flex justify-center items-center">
+        <div className="theme-page min-h-screen flex justify-center items-center">
         <div className="hero min-h-screen">
-          <div className="card bg-base-200 w-full max-w-lg shrink-0 rounded-none p-10">
+          <div className="theme-card-soft w-full max-w-lg shrink-0 p-10">
             <div className="text-center">
               <h1 className="text-2xl font-bold ">Login your account</h1>
             </div>
@@ -114,25 +114,25 @@ const Login = () => {
                     Forgot password?
                   </Link>
                   <div>
-                    {err && <p className="text-red-500 text-center">{err}</p>}
+                    {err && <p className="text-accent text-center">{err}</p>}
                   </div>
                 </label>
               </div>
               <div className="form-control my-6">
-                <button className="btn btn-neutral rounded-none">Login</button>
+                <button className="theme-btn-primary rounded-xl">Login</button>
               </div>
             </form>
   
             <p className="text-center font-semibold pb-6">
               Don't Have an Account?
-              <Link to="/register" className="text-red-500 ml-3 font-bold">
+              <Link to="/register" className="ml-3 font-bold text-primary">
                 Register
               </Link>
             </p>
   
             <div
               onClick={handleLoginWithGoogle}
-              className="flex justify-center items-center gap-4 border rounded-none py-3 font-bold w-full sm:w-10/12 mx-auto hover:text-white hover:bg-neutral hover:cursor-pointer"
+              className="mx-auto flex w-full cursor-pointer items-center justify-center gap-4 rounded-xl border border-base-300 py-3 font-bold sm:w-10/12 hover:bg-base-100"
             >
               <FcGoogle />
               <button>Sign in with Google</button>

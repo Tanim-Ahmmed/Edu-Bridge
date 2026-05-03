@@ -144,7 +144,7 @@ const SessionsCard = ({ sessions, refetch }) => {
                         <div>
                           <Link href="#">
                             <button
-                              className="text-lg text-green-400 pr-6"
+                              className="pr-6 text-lg text-primary"
                               onClick={(e) => handleOpenModal(e, session._id)}
                             >
                               <FaRegEdit />
@@ -178,7 +178,7 @@ const SessionsCard = ({ sessions, refetch }) => {
                                       className="input input-bordered rounded-none w-full input-warning border-2"
                                     />
                                   </div>
-                                  <button className="btn btn-neutral mt-6 ">
+                                  <button className="theme-btn-primary mt-6 ">
                                     Update
                                   </button>
                                 </form>
@@ -189,7 +189,7 @@ const SessionsCard = ({ sessions, refetch }) => {
 
                         <button
                           onClick={() => requestToReject(session._id)}
-                          className="text-lg text-red-600"
+                          className="text-lg text-accent"
                         >
                           <MdDeleteForever />
                         </button>

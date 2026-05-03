@@ -16,8 +16,9 @@ const Dashboard = () => {
   const [isAdmin] = useAdmin();
   const [isTutor] = useTutor();
   return (
-    <div className="sm:flex max-w-7xl mx-auto ">
-      <div className="sm:w-64 sm:min-h-screen bg-base-200 pt-6">
+    <div className="theme-page min-h-screen">
+      <div className="sm:flex max-w-7xl mx-auto ">
+      <div className="sm:w-64 sm:min-h-screen bg-base-200 border-r border-base-300 pt-6">
         <div className="flex justify-between items-center p-3">
           <Link to="/" className="btn btn-ghost text-xl font-bold ">
             <img src={logo} alt="" className="w-10 rounded" />
@@ -112,9 +113,10 @@ const Dashboard = () => {
           </li>
         </ul>
       </div>
-      <div className="flex-1">
+      <div className="flex-1 p-4 sm:p-6">
         <Outlet></Outlet>
       </div>
+    </div>
     </div>
   );
 };

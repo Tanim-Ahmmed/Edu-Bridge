@@ -80,23 +80,23 @@ const ManageNotes = () => {
   return (
     <div className="text-center p-10 ">
       <h1 className="text-2xl font-bold py-10 ">Manage Your Notes</h1>
-      <p className="text-center px-6 pb-8">Review and organize your saved notes. Edit, delete, or sort them to keep your study materials structured and accessible.</p>
+      <p className="theme-muted text-center px-6 pb-8">Review and organize your saved notes. Edit, delete, or sort them to keep your study materials structured and accessible.</p>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {notes.map((note) => (
           <div
             key={note._id}
-            className="bg-base-200 border border-green-500 rounded-xl py-10 px-4"
+            className="theme-card-soft rounded-xl py-10 px-4"
           >
-            <h1 className="text-xl font-semibold bg-base-300 text-green-500">
+            <h1 className="rounded-lg bg-base-300 text-xl font-semibold text-primary">
               {note.title}
             </h1>
-            <p className="text-gray-700 mt-4 border ">{note.description}</p>
+            <p className="theme-muted mt-4 rounded-lg border border-base-300 p-4">{note.description}</p>
 
             <div className="flex pt-10 justify-between">
               <div>
                 <Link href="#">
                   <button
-                    className="text-lg btn rounded-3xl shadow-xl btn-neutral pr-6"
+                    className="theme-btn-primary rounded-3xl pr-6 shadow-xl"
                     onClick={(e) => handleOpenModal(e, note._id)}
                   >
                     update
@@ -139,7 +139,7 @@ const ManageNotes = () => {
                             required
                           />
                         </div>
-                        <button className="btn btn-neutral mt-6 ">
+                        <button className="theme-btn-primary mt-6 ">
                           Update
                         </button>
                       </form>
@@ -150,7 +150,7 @@ const ManageNotes = () => {
 
               <button
                 onClick={() => handleDeleteNote(note._id)}
-                className="text-lg btn btn-neutral text-red-400 rounded-3xl shadow-xl"
+                className="theme-btn-accent rounded-3xl text-lg shadow-xl"
               >
                 delete
               </button>

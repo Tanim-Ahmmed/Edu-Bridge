@@ -6,9 +6,9 @@ const DashHome = () => {
   const {user} = useAuth();
   return (
     <div>
-      <div className="text-center py-6 space-y-4  mx-4">
-        <h1 className="text-gray-900 font-bold text-xl">Welcome <span className="text-green-400"> {user?.displayName}</span> to Your Dashboard </h1>
-        <p>
+      <div className="theme-card mx-4 space-y-4 py-8 text-center">
+        <h1 className="text-xl font-bold text-base-content">Welcome <span className="text-primary"> {user?.displayName}</span> to Your Dashboard </h1>
+        <p className="theme-muted">
           The <strong>Collaborative Study Platform</strong> is designed to
           enhance collaboration among students, tutors, and administrators.
           Streamline study session scheduling, share resources, and manage users
@@ -16,7 +16,7 @@ const DashHome = () => {
           share materials, or manage your educational activities, we aim to
           support your dynamic needs with a user-friendly experience.
         </p>
-        <Link to="/" className="btn bg-green-200">
+        <Link to="/" className="theme-btn-ghost">
           Go to Home <IoIosHome/>
         </Link>
       </div>
